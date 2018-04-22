@@ -23,7 +23,7 @@ def home(request):
             redis_key = "fibonacci_" + str(no)
             redis_result = redis_client.get(redis_key)
             if redis_result:
-                fib_no = redis_result
+                fib_no = redis_result.decode('utf-8')
             else:
                 try:
                     result = FibonacciNumber.objects.get(number=no)
