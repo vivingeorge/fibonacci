@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'img/fav.jpg' %}">
+
+    <title>Fibonacci</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body class="text-center">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <h3 class="masthead-brand">Fibonacci Calculator</h3>
+        </div>
+    </header>
+
+
+    <form>
+        <div class="col-auto">
+            <label class="sr-only" for="inlineFormInput">Enter Number</label>
+            <input type="number" min="0" max="450" name="no" class="form-control mb-2" id="inlineFormInput" placeholder="Enter number" value="{{ no }}">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-2">Calculate Fibonacci</button>
+        </div>
+    </form>
+
+    <main role="main" class="inner cover">
+        {% if fib_no %}
+                <h4 class="cover-heading">F(n) = {{ fib_no }}</h4>
+        {% else %}
+                <p class="lead">The tool calculates F(n) - Fibonacci value for the given number. Because the Fibonacci value for
+            450 has 97 decimals, the maximum allowed value is 450.</p>
+        {% endif %}
+    </main>
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>Project designed by <a href="https://www.linkedin.com/in/vivingeorge/">Vivin</a></p>
+        </div>
+    </footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
