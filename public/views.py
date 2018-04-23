@@ -2,6 +2,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
 from .models import FibonacciNumber
 from django_redis import get_redis_connection
+import time
 
 
 def get_fibonacci(n):
@@ -14,6 +15,7 @@ def get_fibonacci(n):
 
 
 def home(request):
+    load_time = time.time()
     no = None
     fib_no = None
     if request.GET.get('no'):
@@ -36,5 +38,5 @@ def home(request):
                         fibonacci_number.value = fib_no
                         fibonacci_number.save()
                 redis_client.set(redis_key, fib_no)
-
-    return render(request, 'public/home.html', {'no': no, 'fib_no': fib_no})
+    processing_time = time.time() - load_time
+    return render(request, 'public/home.html', {'no': no, 'fib_no': fib_no, 'processing_time': processing_time})

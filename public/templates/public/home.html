@@ -41,6 +41,7 @@
     <main role="main" class="inner cover">
         {% if fib_no %}
                 <h4 class="cover-heading">F(n) = {{ fib_no }}</h4>
+                <p class="lead">Result processed in {{ processing_time }} seconds.</p>
         {% else %}
                 <p class="lead">The tool calculates F(n) - Fibonacci value for the given number. Because the Fibonacci value for
             450 has 97 decimals, the maximum allowed value is 450.</p>
